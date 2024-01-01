@@ -4,6 +4,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:store_api_flutter_course/consts/global_colors.dart';
 import 'package:store_api_flutter_course/screens/category_screen.dart';
 import 'package:store_api_flutter_course/screens/feeds_screen.dart';
+import 'package:store_api_flutter_course/screens/users_screen.dart';
 import 'package:store_api_flutter_course/widgets/appbar_icons.dart';
 import 'package:store_api_flutter_course/widgets/feeds_widget.dart';
 import 'package:store_api_flutter_course/widgets/sale_widget.dart';
@@ -47,7 +48,16 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: IconlyBold.category,
           ),
           actions: [
-            AppBarIcon(function: () {}, icon: IconlyBold.user3),
+            AppBarIcon(
+                function: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                        child: const UsersScreen(),
+                        type: PageTransitionType.fade),
+                  );
+                },
+                icon: IconlyBold.user3),
           ],
         ),
         body: Padding(
